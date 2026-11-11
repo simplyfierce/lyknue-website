@@ -1,0 +1,639 @@
+<title>LykNue Home Page</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="LykNue LLC is a veteran-owned automotive and marine reconditioning shop in Liberty Hill, TX, serving Austin, Marble Falls, and surrounding areas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: navy foundation, photo-led bands that alternate navy / white / light gray; gold used only for actions and small details. Tight vertical rhythm. */
+:root{
+  --navy:#14243A;        /* brand deep navy: backgrounds, headings */
+  --navy-deep:#0D1828;   /* top bar + footer */
+  --navy-soft:#1E3350;   /* raised panels on navy */
+  --gold:#C6A052;        /* brand warm gold: buttons, accents */
+  --gold-dark:#A9853A;
+  --champagne:#9A9380;   /* the logo's own metallic tone */
+  --white:#FFFFFF;
+  --gray:#F2F3F5;        /* brand light gray */
+  --line:#DCDFE5;
+  --ink:#1B2533;         /* body text on light */
+  --muted:#5A6576;
+  --on-navy:#D5DBE4;
+  --tbc:#FFF1C2;         /* "to be confirmed" highlight */
+  --tbc-ink:#6B4E00;
+  --font-head:"Montserrat","Segoe UI",Arial,sans-serif;
+  --font-body:"Open Sans","Segoe UI",Arial,sans-serif;
+  --wrap:1180px;
+  --sec:56px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--white);color:var(--ink);font:400 16px/1.6 var(--font-body)}
+h1,h2,h3,h4{font-family:var(--font-head);color:var(--navy);margin:0;line-height:1.15;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.eyebrow{font:700 12px/1 var(--font-head);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dark)}
+.on-navy .eyebrow{color:var(--gold)}
+.sec{padding-block:var(--sec)}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px 32px;margin-bottom:28px}
+.sec-head h2{font-size:clamp(26px,3.2vw,36px);font-weight:800;margin-top:8px}
+.sec-head p{max-width:46ch;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 14px/1 var(--font-head);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:15px 22px;border-radius:3px;border:2px solid transparent;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-gold:hover{background:#D4B26A}
+.btn-ghost{border-color:rgba(255,255,255,.45);color:var(--white)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn-navy{background:var(--navy);color:var(--white)}
+.btn-navy:hover{background:var(--navy-soft)}
+.link-arrow{font:700 13px/1 var(--font-head);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--navy);display:inline-flex;gap:6px;align-items:center;border-bottom:2px solid var(--gold);padding-bottom:4px}
+.link-arrow:hover{color:var(--gold-dark)}
+
+/* "To confirm" markers */
+.tbc{background:var(--tbc);color:var(--tbc-ink);font-size:.86em;font-weight:600;padding:1px 6px;border-radius:2px;white-space:normal}
+.ph{position:relative;display:grid;place-items:center;text-align:center;background:
+   repeating-linear-gradient(135deg,rgba(20,36,58,.06) 0 12px,rgba(20,36,58,.02) 12px 24px),#E4E7EC;
+   border:2px dashed #A7AFBC;color:var(--muted);font:600 13px/1.4 var(--font-head);padding:16px;max-width:100%}
+.ph span{max-width:28ch}
+.ph b{display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:4px}
+.ph.dark{background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 12px,rgba(255,255,255,.015) 12px 24px),var(--navy-soft);border-color:#4B5E7A;color:#AEB8C7}
+.ph.dark b{color:var(--gold)}
+
+/* Review bar (remove before launch) */
+.review{background:var(--tbc);color:var(--tbc-ink);font:600 13px/1.4 var(--font-body)}
+.review .wrap{padding-block:8px;display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:space-between}
+
+/* Top bar */
+.topbar{background:var(--navy-deep);color:var(--on-navy);font-size:13px}
+.topbar .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:space-between;padding-block:9px}
+.topbar .group{display:flex;flex-wrap:wrap;gap:6px 22px}
+.topbar a{text-decoration:none}
+.topbar a:hover{color:var(--gold)}
+.ico{display:inline-flex;align-items:center;gap:7px}
+.ico svg{width:14px;height:14px;fill:var(--gold);flex:none}
+
+/* Header */
+header.site{background:var(--navy);position:sticky;top:env(safe-area-inset-top,0px);z-index:20;border-bottom:1px solid rgba(255,255,255,.08)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--navy)}
+header.site .wrap{display:flex;align-items:center;gap:24px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+.brand img{height:52px;width:auto}
+.brand .name{font:800 22px/1 var(--font-head);color:var(--white);letter-spacing:.02em}
+.brand .name small{display:block;font:600 10px/1 var(--font-head);letter-spacing:.2em;text-transform:uppercase;color:var(--champagne);margin-top:5px}
+nav.main ul{list-style:none;display:flex;gap:28px;margin:0;padding:0}
+nav.main a{font:600 14px/1 var(--font-head);color:var(--white);text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
+nav.main a:hover,nav.main a[aria-current]{border-color:var(--gold);color:var(--white)}
+.head-cta{display:flex;align-items:center;gap:18px}
+.head-phone{color:var(--white);text-decoration:none;font:700 15px/1.2 var(--font-head)}
+.head-phone small{display:block;font:600 10px/1 var(--font-head);letter-spacing:.14em;text-transform:uppercase;color:var(--champagne);margin-bottom:3px}
+.menu-btn{display:none;background:none;border:1px solid rgba(255,255,255,.3);color:var(--white);border-radius:3px;padding:9px 11px;cursor:pointer}
+.menu-btn svg{width:20px;height:20px;fill:currentColor;display:block}
+
+/* Hero */
+.hero{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:4px;background:linear-gradient(90deg,var(--gold),var(--champagne))}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center;padding-block:52px 60px}
+.hero h1{color:var(--white);font-size:clamp(34px,4.6vw,54px);font-weight:800;letter-spacing:-.01em;margin:14px 0 16px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .lede{font-size:18px;max-width:50ch}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.badges{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font:600 13px/1.3 var(--font-head);color:var(--white)}
+.badges span{display:inline-flex;align-items:center;gap:8px}
+.badges svg{width:16px;height:16px;fill:var(--gold)}
+
+/* Before/after slider */
+.ba{position:relative;aspect-ratio:1/1;max-height:560px;width:100%;max-width:100%;border-radius:4px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.35);user-select:none}
+.ba .pane{position:absolute;inset:0;border:none}
+.ba .pane{width:100%;height:100%;object-fit:cover;display:block}
+.ba .after{clip-path:inset(0 0 0 var(--pos,50%))}
+.ba .before.ph{justify-items:start;padding-left:6%}
+.ba .after.ph{justify-items:end;padding-right:6%}
+.ba .pane span{max-width:16ch}
+.ba .before.ph{background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 12px,rgba(255,255,255,.015) 12px 24px),#2A3B55;color:#B9C3D2;border:none}
+.ba .after.ph{background:repeating-linear-gradient(135deg,rgba(20,36,58,.06) 0 12px,rgba(20,36,58,.02) 12px 24px),#E9EBEF;border:none}
+.ba .tag{position:absolute;top:12px;font:800 11px/1 var(--font-head);letter-spacing:.16em;text-transform:uppercase;padding:7px 10px;border-radius:2px;z-index:2}
+.ba .tag.l{left:12px;background:var(--navy-deep);color:var(--white)}
+.ba .tag.r{right:12px;background:var(--gold);color:var(--navy)}
+.ba .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:3px;margin-left:-1.5px;background:var(--gold);z-index:2;pointer-events:none}
+.ba .handle::after{content:"\2194";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:var(--gold);color:var(--navy);display:grid;place-items:center;font:800 18px/1 var(--font-head)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:3;margin:0}
+.ba-note{font-size:12px;color:#93A0B3;margin-top:10px;text-align:center}
+
+/* Service lanes */
+.lanes{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.lane{display:grid;grid-template-rows:auto 1fr;background:var(--white);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.lane .lane-img{width:100%;aspect-ratio:16/8;object-fit:cover;border-bottom:3px solid var(--gold)}
+.lane .body{padding:24px 26px 26px;display:flex;flex-direction:column;gap:14px}
+.lane .kicker{display:flex;align-items:center;gap:10px}
+.lane .kicker svg{width:30px;height:30px;fill:var(--gold)}
+.lane h3{font-size:24px;font-weight:800}
+.lane p{color:var(--muted)}
+.svc{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.svc li{border-bottom:1px solid var(--line)}
+.svc a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 2px;text-decoration:none;font:700 15px/1.3 var(--font-head);color:var(--navy)}
+.svc a:hover{color:var(--gold-dark)}
+.svc a::after{content:"\2192";color:var(--gold-dark)}
+.lane .foot{margin-top:auto;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.small{font-size:13px;color:var(--muted)}
+
+/* Why */
+.why{background:var(--gray)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:3px solid var(--navy);background:var(--white)}
+.why-item{padding:24px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.why-item:last-child{border-right:0}
+.why-item svg{width:30px;height:30px;fill:var(--gold-dark)}
+.why-item h3{font-size:17px;font-weight:800}
+.why-item p{font-size:15px;color:var(--muted)}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 18px}
+.work{display:flex;flex-direction:column;gap:10px}
+.work .pair{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.work .shot{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--gray)}
+.work .shot img{width:100%;height:100%;object-fit:cover}
+.work .lbl{position:absolute;left:6px;bottom:6px;font:800 10px/1 var(--font-head);letter-spacing:.14em;text-transform:uppercase;padding:5px 7px;background:var(--navy-deep);color:var(--white)}
+.work .lbl.after{background:var(--gold);color:var(--navy)}
+.work h4{font-size:15px;font-weight:700}
+.work .cat{font:700 11px/1 var(--font-head);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dark)}
+
+/* Process */
+.process{background:var(--navy);color:var(--on-navy)}
+.process h2{color:var(--white)}
+.process .sec-head p{color:var(--on-navy)}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.steps li{background:var(--navy-soft);border-radius:4px;padding:22px 20px;display:flex;flex-direction:column;gap:8px;counter-increment:s;position:relative}
+.steps li::before{content:counter(s);font:800 15px/1 var(--font-head);color:var(--navy);background:var(--gold);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;margin-bottom:4px}
+.steps h3{color:var(--white);font-size:17px;font-weight:700}
+.steps p{font-size:15px}
+.process .tbc{background:rgba(255,241,194,.92)}
+
+/* Owner */
+.owner .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:center}
+.shop-fig{margin:0;display:flex;flex-direction:column;gap:8px}
+.shop-fig img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+.shop-fig figcaption{font-size:13px;color:var(--muted)}
+.owner h2{font-size:clamp(26px,3.2vw,36px);font-weight:800;margin:8px 0 14px}
+.owner .copy{display:flex;flex-direction:column;gap:14px;max-width:60ch}
+.owner .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);margin-top:6px}
+.owner .facts div{padding:14px 16px;border-right:1px solid var(--line)}
+.owner .facts div:last-child{border-right:0}
+.owner .facts dt{font:700 11px/1.2 var(--font-head);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.owner .facts dd{margin:6px 0 0;font:800 17px/1.25 var(--font-head);color:var(--navy)}
+
+/* Testimonials */
+.reviews{background:var(--gray)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.quote{background:var(--white);border:2px dashed #A7AFBC;border-radius:4px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.quote .stars{color:var(--gold);letter-spacing:3px;font-size:16px}
+.quote blockquote{margin:0;font-size:15px;color:var(--muted);font-style:italic}
+.quote .who{font:700 14px/1.3 var(--font-head);color:var(--navy);margin-top:auto}
+.quote .who small{display:block;font-weight:600;color:var(--muted);font-size:12px}
+
+/* Estimate */
+.estimate{background:var(--navy);color:var(--on-navy)}
+.estimate .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:44px;align-items:start}
+.estimate h2{color:var(--white);font-size:clamp(28px,3.6vw,42px);font-weight:800;margin:10px 0 14px}
+.estimate h2 em{font-style:normal;color:var(--gold)}
+.contact-list{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px}
+.contact-list li{display:flex;gap:12px;align-items:flex-start}
+.contact-list svg{width:18px;height:18px;fill:var(--gold);flex:none;margin-top:3px}
+.contact-list b{display:block;font:700 11px/1.2 var(--font-head);letter-spacing:.14em;text-transform:uppercase;color:var(--champagne);margin-bottom:3px}
+.contact-list a,.contact-list span.v{color:var(--white);text-decoration:none;font-weight:600;user-select:all}
+form.est{background:var(--white);color:var(--ink);border-radius:4px;padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form.est h3{grid-column:1/-1;font-size:20px;font-weight:800}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font:700 12px/1.2 var(--font-head);letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+.field input,.field select,.field textarea{font:400 15px/1.4 var(--font-body);color:var(--ink);background:var(--white);border:1px solid #C3C9D3;border-radius:3px;padding:11px 12px;width:100%}
+.field textarea{min-height:92px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+.seg{display:flex;gap:8px}
+.seg label{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid #C3C9D3;border-radius:3px;padding:11px;cursor:pointer;text-transform:none;letter-spacing:0;font-size:14px}
+.seg input{accent-color:var(--navy);width:auto;margin:0}
+.seg label:has(input:checked){border-color:var(--navy);background:var(--gray)}
+form.est .submit{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}
+.form-msg{font-size:14px;color:var(--navy);font-weight:600}
+
+/* Service area strip */
+.area{background:var(--gold);color:var(--navy)}
+.area .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:center;padding-block:14px;font:700 14px/1.3 var(--font-head);text-align:center}
+.area .dot{width:5px;height:5px;border-radius:50%;background:var(--navy)}
+
+/* Footer */
+footer.site{background:var(--navy-deep);color:#A9B4C4;font-size:14px}
+.f-top{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:32px;padding-block:44px 32px}
+.f-top h4{color:var(--white);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.f-top ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.f-top a{text-decoration:none}
+.f-top a:hover{color:var(--gold)}
+.f-brand{display:flex;flex-direction:column;gap:14px}
+.f-brand .brand img{height:46px}
+.social{display:flex;gap:10px}
+.social a{width:36px;height:36px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center}
+.social a:hover{border-color:var(--gold)}
+.social svg{width:16px;height:16px;fill:var(--white)}
+.f-bottom{border-top:1px solid rgba(255,255,255,.1)}
+.f-bottom .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center;padding-block:16px;font-size:13px}
+.credit{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#C9D1DC}
+.credit img{width:38px;height:38px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.85)}
+.credit strong{color:var(--white);font-weight:600}
+.credit:hover strong{color:var(--gold)}
+
+/* Responsive */
+@media (max-width:1080px){
+  nav.main ul{gap:20px}
+  .head-phone{display:none}
+}
+@media (max-width:920px){
+  :root{--sec:44px}
+  .menu-btn{display:block}
+  nav.main{position:absolute;left:0;right:0;top:100%;background:var(--navy);border-top:1px solid rgba(255,255,255,.1)}
+  nav.main[hidden]{display:none!important}
+  nav.main ul{flex-direction:column;gap:0;padding:8px max(20px,env(safe-area-inset-right,0px)) 16px max(20px,env(safe-area-inset-left,0px))}
+  nav.main a{display:block;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+  .head-cta .btn{display:none}
+  .hero .wrap,.owner .wrap,.estimate .wrap{grid-template-columns:1fr;gap:32px}
+  .lanes{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .why-item:nth-child(2){border-right:0}
+  .why-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .gallery,.steps{grid-template-columns:1fr 1fr}
+  .quotes{grid-template-columns:1fr}
+  .f-top{grid-template-columns:1fr 1fr}
+}
+@media (min-width:921px){ nav.main[hidden]{display:block!important} }
+@media (max-width:560px){
+  .topbar .hide-sm{display:none}
+  .brand img{height:42px}
+  .brand .name{font-size:19px}
+  .why-grid,.gallery,.steps,.f-top{grid-template-columns:1fr}
+  .why-item{border-right:0;border-bottom:1px solid var(--line)}
+  form.est{grid-template-columns:1fr;padding:20px}
+  .owner .facts{grid-template-columns:1fr}
+  .owner .facts div{border-right:0;border-bottom:1px solid var(--line)}
+  .owner .facts div:last-child{border-bottom:0}
+  .hero .actions .btn{flex:1 1 100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.4 3.5 2.1-.8 1.3L11 13V7h2z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.2l7.1-.6z"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 2h2v20H5zm3 1h12l-3 4.5 3 4.5H8z"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M18.9 6a1.5 1.5 0 0 0-1.4-1h-11a1.5 1.5 0 0 0-1.4 1L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8zM6.5 16A1.5 1.5 0 1 1 8 14.5 1.5 1.5 0 0 1 6.5 16zm11 0a1.5 1.5 0 1 1 1.5-1.5 1.5 1.5 0 0 1-1.5 1.5zM5 11l1.5-4.5h11L19 11z"/></symbol>
+  <symbol id="i-boat" viewBox="0 0 24 24"><path d="M20 21c-1.4 0-2.8-.5-4-1.3a7 7 0 0 1-8 0A7 7 0 0 1 4 21H2v2h2a8.6 8.6 0 0 0 4-1 8.7 8.7 0 0 0 8 0 8.6 8.6 0 0 0 4 1h2v-2zM3.9 19H4a5.6 5.6 0 0 0 4-1.9 5.4 5.4 0 0 0 8 0 5.6 5.6 0 0 0 4 1.9h.1l1.9-6.6a1 1 0 0 0-.7-1.3L20 10.7V6a2 2 0 0 0-2-2h-3V1H9v3H6a2 2 0 0 0-2 2v4.7l-1.3.4a1 1 0 0 0-.7 1.3zM6 6h12v4l-6-2-6 2z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8l5 5 1.5-1.5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM7 9h10v2H7zm6 5H7v-2h6zm4-6H7V6h10z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M14 13.5h2.5l1-4H14v-2c0-1 0-2 2-2h1.5V2.1A28 28 0 0 0 14.6 2C11.9 2 10 3.7 10 6.7v2.8H7v4h3V22h4z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM21.9 7.9a5.8 5.8 0 0 0-1.6-4.2A5.8 5.8 0 0 0 16.1 2C14.5 2 9.5 2 7.9 2a5.8 5.8 0 0 0-4.2 1.6A5.8 5.8 0 0 0 2 7.9C2 9.5 2 14.5 2 16.1a5.8 5.8 0 0 0 1.6 4.2A5.8 5.8 0 0 0 7.9 22c1.6.1 6.6.1 8.2 0a5.8 5.8 0 0 0 4.2-1.6 5.8 5.8 0 0 0 1.6-4.2c.1-1.6.1-6.6 0-8.2zM19.8 18a3.3 3.3 0 0 1-1.8 1.8c-1.3.5-4.3.4-6 .4s-4.7.1-6-.4A3.3 3.3 0 0 1 4.2 18c-.5-1.3-.4-4.3-.4-6s-.1-4.7.4-6A3.3 3.3 0 0 1 6 4.2c1.3-.5 4.3-.4 6-.4s4.7-.1 6 .4A3.3 3.3 0 0 1 19.8 6c.5 1.3.4 4.3.4 6s.1 4.7-.4 6z"/></symbol>
+  <symbol id="i-g" viewBox="0 0 24 24"><path d="M21.6 10.2H12v3.9h5.5a5.6 5.6 0 0 1-2.4 3.4 6.2 6.2 0 0 1-9.3-3.2 6.2 6.2 0 0 1 9.8-7l2.8-2.8A10 10 0 1 0 12 22c5.5 0 9.8-3.9 9.8-9.6a9 9 0 0 0-.2-2.2z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></symbol>
+</svg>
+
+<div class="review" role="note">
+  <div class="wrap">
+    <span>Draft home page for review. Items <span class="tbc">highlighted like this</span> and dashed boxes are placeholders to confirm or replace.</span>
+    <span>Remove this bar before launch.</span>
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="group">
+      <span class="ico hide-sm"><svg><use href="#i-pin"/></svg>13800 W Hwy 29, Unit D, Liberty Hill, TX 78642</span>
+      <span class="ico"><svg><use href="#i-clock"/></svg><span class="tbc">Business hours to confirm</span></span>
+    </div>
+    <div class="group">
+      <a class="ico hide-sm" href="mailto:LykNueLLC@gmail.com"><svg><use href="#i-mail"/></svg>LykNueLLC@gmail.com</a>
+      <a class="ico" href="tel:+15127853066"><svg><use href="#i-phone"/></svg>512-785-3066</a>
+    </div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="LykNue home">
+      <img src="assets/lyknue-logo.png" alt="LykNue logo" width="52" height="52">
+      <span class="name">LykNue<small>Automotive &amp; Marine</small></span>
+    </a>
+    <nav class="main" id="mainnav" aria-label="Main">
+      <ul>
+        <li><a href="#top" aria-current="page">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#estimate">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="head-cta">
+      <a class="head-phone" href="tel:+15127853066"><small>Call the shop</small>512-785-3066</a>
+      <a class="btn btn-gold" href="#estimate">Request an Estimate</a>
+      <button class="menu-btn" id="menuBtn" aria-controls="mainnav" aria-expanded="false" aria-label="Open menu"><svg><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero on-navy">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Veteran-owned · Liberty Hill, Texas</span>
+        <h1>Renewed appearance. <em>Pride in every detail.</em></h1>
+        <p class="lede">Automotive and marine reconditioning for vehicle and boat owners in Liberty Hill, Austin, Marble Falls, and surrounding areas. We repair worn or damaged paint, body surfaces, wheels, interiors, upholstery, and gel coat.</p>
+        <div class="actions">
+          <a class="btn btn-gold" href="#estimate">Request an Estimate</a>
+          <a class="btn btn-ghost" href="tel:+15127853066"><svg width="16" height="16" fill="currentColor"><use href="#i-phone"/></svg>Call 512-785-3066</a>
+        </div>
+        <div class="badges">
+          <span><svg><use href="#i-flag"/></svg>Veteran-owned</span>
+          <span><svg><use href="#i-car"/></svg>Automotive</span>
+          <span><svg><use href="#i-boat"/></svg>Marine</span>
+          <span><svg><use href="#i-pin"/></svg>Local to Liberty Hill</span>
+        </div>
+      </div>
+      <div>
+        <div class="ba" id="ba" style="--pos:62%">
+          <img class="pane before" src="assets/hero-before-f150.jpg" alt="Red Ford F-150 with torn bedside panel before repair" draggable="false">
+          <img class="pane after" src="assets/hero-after-f150.jpg" alt="The same Ford F-150 after LykNue repaired and refinished the bedside" draggable="false">
+          <span class="tag l">Before</span><span class="tag r">After</span>
+          <div class="handle"></div>
+          <input type="range" id="baRange" min="0" max="100" value="62" aria-label="Drag to compare before and after">
+        </div>
+        <p class="ba-note">Drag to compare. Ford F-150 bedside repair by LykNue.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES: two lanes -->
+  <section class="sec" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">What we do</span><h2>Two specialties, one standard of work</h2></div>
+        <p>Choose your lane. Each service will link to its own section on the Services page.</p>
+      </div>
+      <div class="lanes">
+        <article class="lane">
+          <img class="lane-img" src="assets/shop-interior.jpg" alt="Inside the LykNue shop with truck body panels mid-repair" loading="lazy">
+          <div class="body">
+            <div class="kicker"><svg><use href="#i-car"/></svg><h3>Automotive</h3></div>
+            <p>Restore the look of your car or truck, whether it's a scuffed bumper, curb-rashed wheels, or a worn interior.</p>
+            <ul class="svc">
+              <li><a href="#services">Paint &amp; body repair</a></li>
+              <li><a href="#services">Wheel repair</a></li>
+              <li><a href="#services">Interior repair</a></li>
+            </ul>
+            <div class="foot">
+              <span class="small"><span class="tbc">Confirm specific repairs in each category</span></span>
+              <a class="link-arrow" href="#services">Automotive services →</a>
+            </div>
+          </div>
+        </article>
+        <article class="lane">
+          <img class="lane-img" src="assets/marine-seating-after.jpg" alt="Boat seating with new white and tan upholstery" loading="lazy">
+          <div class="body">
+            <div class="kicker"><svg><use href="#i-boat"/></svg><h3>Marine</h3></div>
+            <p>Bring back the shine on your boat's gel coat and refresh faded or torn seating before the next season on the water.</p>
+            <ul class="svc">
+              <li><a href="#services">Gel-coat repair</a></li>
+              <li><a href="#services">Upholstery repair</a></li>
+            </ul>
+            <div class="foot">
+              <span class="small"><span class="tbc">Confirm specific repairs in each category</span></span>
+              <a class="link-arrow" href="#services">Marine services →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="sec why">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Why LykNue</span><h2>Work you can see, from people you can talk to</h2></div>
+      </div>
+      <div class="why-grid">
+        <div class="why-item"><svg><use href="#i-flag"/></svg><h3>Veteran-owned</h3><p>LykNue is owned and run by Nicholas Wisdom, a veteran who takes pride in every job that leaves the shop.</p></div>
+        <div class="why-item"><svg><use href="#i-search"/></svg><h3>Attention to detail</h3><p>We take the time to match, blend, and finish so the repair fits the rest of your vehicle or boat.</p></div>
+        <div class="why-item"><svg><use href="#i-chat"/></svg><h3>Clear communication</h3><p>We explain the damage, your options, and the next step in plain language before any work begins.</p></div>
+        <div class="why-item"><svg><use href="#i-home"/></svg><h3>Local to Liberty Hill</h3><p>A Hill Country shop on W Hwy 29, serving Austin, Marble Falls, and the communities in between.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Recent work</span><h2>Before &amp; after</h2></div>
+        <a class="link-arrow" href="#work">See the full gallery →</a>
+      </div>
+      <div class="gallery">
+        <figure class="work" style="margin:0">
+          <div class="pair"><div class="shot"><img src="assets/g-jeep-before.jpg" alt="Red Jeep hood before repair" loading="lazy"><span class="lbl">Before</span></div><div class="shot"><img src="assets/g-jeep-after.jpg" alt="Red Jeep hood after repair" loading="lazy"><span class="lbl after">After</span></div></div>
+          <span class="cat">Automotive · Paint &amp; body</span><h4>Jeep hood repaint</h4>
+        </figure>
+        <figure class="work" style="margin:0">
+          <div class="pair"><div class="shot"><img src="assets/g-bench-before.jpg" alt="Boat bench seat cushions before repair" loading="lazy"><span class="lbl">Before</span></div><div class="shot"><img src="assets/g-bench-after.jpg" alt="Boat bench seat cushions after repair" loading="lazy"><span class="lbl after">After</span></div></div>
+          <span class="cat">Marine · Upholstery</span><h4>Boat bench cushions</h4>
+        </figure>
+        <figure class="work" style="margin:0">
+          <div class="pair"><div class="shot"><img src="assets/g-pilot-before.jpg" alt="White Honda Pilot rear door before repair" loading="lazy"><span class="lbl">Before</span></div><div class="shot"><img src="assets/g-pilot-after.jpg" alt="White Honda Pilot rear door after repair" loading="lazy"><span class="lbl after">After</span></div></div>
+          <span class="cat">Automotive · Paint &amp; body</span><h4>Honda Pilot rear door</h4>
+        </figure>
+        <figure class="work" style="margin:0">
+          <div class="pair"><div class="shot"><img src="assets/g-toyota-before.jpg" alt="Dark gray Toyota rear door before repair" loading="lazy"><span class="lbl">Before</span></div><div class="shot"><img src="assets/g-toyota-after.jpg" alt="Dark gray Toyota rear door after repair" loading="lazy"><span class="lbl after">After</span></div></div>
+          <span class="cat">Automotive · Paint &amp; body</span><h4>Toyota rear door</h4>
+        </figure>
+        <figure class="work" style="margin:0">
+          <div class="pair"><div class="shot"><img src="assets/g-tucson-before.jpg" alt="Silver Hyundai Tucson liftgate before repair" loading="lazy"><span class="lbl">Before</span></div><div class="shot"><img src="assets/g-tucson-after.jpg" alt="Silver Hyundai Tucson liftgate after repair" loading="lazy"><span class="lbl after">After</span></div></div>
+          <span class="cat">Automotive · Paint &amp; body</span><h4>Hyundai Tucson liftgate</h4>
+        </figure>
+        <figure class="work" style="margin:0">
+          <div class="pair"><div class="shot"><img src="assets/g-seat-before.jpg" alt="Boat seat upholstery before repair" loading="lazy"><span class="lbl">Before</span></div><div class="shot"><img src="assets/g-seat-after.jpg" alt="Boat seat upholstery after repair" loading="lazy"><span class="lbl after">After</span></div></div>
+          <span class="cat">Marine · Upholstery</span><h4>Boat seating</h4>
+        </figure>
+        </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="sec process on-navy">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">How it works</span><h2>From first call to finished repair</h2></div>
+        <p>What to expect after you reach out.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Reach out</h3><p>Call 512-785-3066 or send an estimate request. <span class="tbc">Confirm: can customers send photos first?</span></p></li>
+        <li><h3>Get your estimate</h3><p>We look at the damage and walk you through your options and cost. <span class="tbc">Confirm how estimates are handled</span></p></li>
+        <li><h3>Schedule the work</h3><p>Pick a time that works for you. <span class="tbc">Confirm: at the shop, mobile, or both</span></p></li>
+        <li><h3>Pick it up</h3><p>Come see the finished repair. <span class="tbc">Confirm pickup process</span></p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- OWNER -->
+  <section class="sec owner" id="about">
+    <div class="wrap">
+      <figure class="shop-fig"><img src="assets/shop-pup-decal.jpg" alt="The LykNue shop puppy in a truck bed below the LykNue Automotive and Marine window decal" loading="lazy"><figcaption>The LykNue shop pup. <span class="tbc">Add a photo of Nicholas</span></figcaption></figure>
+      <div class="copy">
+        <div><span class="eyebrow">Meet the owner</span><h2>Nicholas Wisdom, Owner</h2></div>
+        <p>LykNue is a veteran-owned business in Liberty Hill, owned and operated by Nicholas Wisdom. The shop helps local vehicle and boat owners repair cosmetic damage, refresh worn surfaces, and improve appearance before selling.</p>
+        <p><span class="tbc">Add 1 to 2 sentences on Nicholas's service background and how he got into reconditioning.</span></p>
+        <dl class="facts">
+          <div><dt>Founded</dt><dd><span class="tbc">Year TBC</span></dd></div>
+          <div><dt>Experience</dt><dd><span class="tbc">Years TBC</span></dd></div>
+          <div><dt>Ownership</dt><dd>Veteran-owned</dd></div>
+        </dl>
+        <div><a class="link-arrow" href="#about">Our story →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="sec reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Customer feedback</span><h2>What our customers say</h2></div>
+        <p><span class="tbc">Placeholders: replace with real, customer-approved reviews and source links.</span></p>
+      </div>
+      <div class="quotes">
+        <figure class="quote" style="margin:0">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <blockquote>Testimonial placeholder. A real customer review about workmanship goes here.</blockquote>
+          <figcaption class="who">Customer name<small>Automotive · Google review</small></figcaption>
+        </figure>
+        <figure class="quote" style="margin:0">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <blockquote>Testimonial placeholder. A real customer review about communication goes here.</blockquote>
+          <figcaption class="who">Customer name<small>Marine · Facebook review</small></figcaption>
+        </figure>
+        <figure class="quote" style="margin:0">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <blockquote>Testimonial placeholder. A real customer review about the overall experience goes here.</blockquote>
+          <figcaption class="who">Customer name<small>Source TBC</small></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTIMATE -->
+  <section class="sec estimate on-navy" id="estimate">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Request an estimate</span>
+        <h2>Bring it back to <em>LykNue</em></h2>
+        <p>Tell us about your vehicle or boat and what needs attention. We'll follow up to talk through your options.</p>
+        <ul class="contact-list">
+          <li><svg><use href="#i-phone"/></svg><div><b>Call</b><a href="tel:+15127853066">512-785-3066</a></div></li>
+          <li><svg><use href="#i-mail"/></svg><div><b>Email</b><a href="mailto:LykNueLLC@gmail.com">LykNueLLC@gmail.com</a></div></li>
+          <li><svg><use href="#i-pin"/></svg><div><b>Shop</b><span class="v">13800 W Hwy 29, Unit D<br>Liberty Hill, TX 78642</span></div></li>
+          <li><svg><use href="#i-clock"/></svg><div><b>Hours</b><span class="tbc">To confirm</span></div></li>
+        </ul>
+      </div>
+      <form class="est" id="estForm" novalidate>
+        <h3>Get started</h3>
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        <div class="field full"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        <div class="field full"><span class="field-l" style="font:700 12px/1.2 var(--font-head);letter-spacing:.06em;text-transform:uppercase;color:var(--navy)">This is for my</span>
+          <div class="seg" role="radiogroup" aria-label="Vehicle or boat">
+            <label for="f-auto"><input type="radio" id="f-auto" name="type" value="Vehicle" checked>Vehicle</label>
+            <label for="f-boat"><input type="radio" id="f-boat" name="type" value="Boat">Boat</label>
+          </div>
+        </div>
+        <div class="field full"><label for="f-svc">Service needed</label>
+          <select id="f-svc" name="service">
+            <option>Paint &amp; body repair</option><option>Wheel repair</option><option>Interior repair</option>
+            <option>Gel-coat repair</option><option>Upholstery repair</option><option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field full"><label for="f-msg">Tell us about the damage</label><textarea id="f-msg" name="message" placeholder="Year, make and model, and what you'd like repaired"></textarea></div>
+        <div class="field full"><label for="f-photos">Photos (optional)</label><input id="f-photos" name="photos" type="file" accept="image/*" multiple><span class="small"><span class="tbc">Confirm photo submissions are accepted</span></span></div>
+        <div class="submit">
+          <button class="btn btn-navy" type="submit">Send Request</button>
+          <span class="form-msg" id="formMsg" role="status"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div class="area" aria-label="Service area">
+    <div class="wrap">
+      <span>Serving</span><span class="dot"></span><span>Liberty Hill</span><span class="dot"></span><span>Austin</span><span class="dot"></span><span>Marble Falls</span><span class="dot"></span><span>&amp; surrounding areas</span>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap f-top">
+    <div class="f-brand">
+      <a class="brand" href="#top" aria-label="LykNue home">
+        <img src="assets/lyknue-logo.png" alt="LykNue logo" width="46" height="46">
+        <span class="name">LykNue<small>Automotive &amp; Marine</small></span>
+      </a>
+      <p>Veteran-owned automotive and marine reconditioning in Liberty Hill, Texas.</p>
+      <div class="social">
+        <a href="https://www.facebook.com/profile.php?id=61593291790048" target="_blank" rel="noopener" aria-label="LykNue on Facebook"><svg><use href="#i-fb"/></svg></a>
+        <a href="#" aria-label="Instagram (link to confirm)" title="Instagram link to confirm"><svg><use href="#i-ig"/></svg></a>
+        <a href="#" aria-label="Google Business Profile (link to confirm)" title="Google Business Profile link to confirm"><svg><use href="#i-g"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <ul><li><a href="#top">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#blog">Blog</a></li><li><a href="#estimate">Contact</a></li></ul>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul><li><a href="#services">Paint &amp; body repair</a></li><li><a href="#services">Wheel repair</a></li><li><a href="#services">Interior repair</a></li><li><a href="#services">Gel-coat repair</a></li><li><a href="#services">Upholstery repair</a></li></ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+15127853066">512-785-3066</a></li>
+        <li><a href="mailto:LykNueLLC@gmail.com">LykNueLLC@gmail.com</a></li>
+        <li>13800 W Hwy 29, Unit D<br>Liberty Hill, TX 78642</li>
+        <li><span class="tbc">Hours to confirm</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <div class="wrap">
+      <span>© <span id="yr">2026</span> LykNue LLC. All rights reserved.</span>
+      <a class="credit" href="#" aria-label="Website designed by Simply Fierce Marketing">
+        <img src="assets/simply-fierce-lioness.png" alt="Simply Fierce Marketing lioness logo" width="36" height="36">
+        <span>Website designed by <strong>Simply Fierce Marketing</strong></span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ba=document.getElementById('ba'),r=document.getElementById('baRange');
+  r.addEventListener('input',function(){ba.style.setProperty('--pos',r.value+'%')});
+  var btn=document.getElementById('menuBtn'),nav=document.getElementById('mainnav');
+  function setNav(){ if(window.matchMedia('(max-width:920px)').matches){nav.hidden=btn.getAttribute('aria-expanded')!=='true'} else {nav.hidden=false} }
+  btn.addEventListener('click',function(){var o=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!o));btn.setAttribute('aria-label',o?'Open menu':'Close menu');setNav()});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'&&window.matchMedia('(max-width:920px)').matches){btn.setAttribute('aria-expanded','false');setNav()}});
+  window.addEventListener('resize',setNav);setNav();
+  document.getElementById('estForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('f-name').value.trim(),p=document.getElementById('f-phone').value.trim();
+    var m=document.getElementById('formMsg');
+    m.textContent=(!n||!p)?'Please add your name and phone number.':'Preview only: this form will be connected to email when the site goes live.';
+  });
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
